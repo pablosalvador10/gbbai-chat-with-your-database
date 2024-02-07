@@ -1,12 +1,11 @@
 """
 `azure_openai.py` is a module for managing interactions with the Azure OpenAI API within our application.
-
 """
 import json
-import openai
 import os
 from typing import Any, Dict, List, Optional, Tuple
 
+import openai
 import requests
 from dotenv import load_dotenv
 from openai import AzureOpenAI
@@ -143,7 +142,7 @@ class AzureOpenAIManager:
             logger.error("The server could not be reached")
             logger.error(e.__cause__)
             return None
-        except openai.RateLimitError as e:
+        except openai.RateLimitError:
             logger.error("A 429 status code was received; we should back off a bit.")
             return None
         except openai.APIStatusError as e:
@@ -211,7 +210,7 @@ class AzureOpenAIManager:
             logger.error("The server could not be reached")
             logger.error(e.__cause__)
             return None
-        except openai.RateLimitError as e:
+        except openai.RateLimitError:
             logger.error("A 429 status code was received; we should back off a bit.")
             return None
         except openai.APIStatusError as e:
@@ -250,7 +249,7 @@ class AzureOpenAIManager:
             logger.error("The server could not be reached")
             logger.error(e.__cause__)
             return None
-        except openai.RateLimitError as e:
+        except openai.RateLimitError:
             logger.error("A 429 status code was received; we should back off a bit.")
             return None
         except openai.APIStatusError as e:
@@ -290,7 +289,9 @@ class AzureOpenAIManager:
                 logger.error(e.__cause__)
                 return None, None, {}
             except requests.HTTPError as e:
-                logger.error("A 429 status code was received; we should back off a bit.")
+                logger.error(
+                    "A 429 status code was received; we should back off a bit."
+                )
                 return response.status_code, e.response.json(), {}
             except Exception as err:
                 logger.error(f"An error occurred: {err}")
