@@ -1,4 +1,4 @@
-PYTHON_INTERPRETER = python3
+PYTHON_INTERPRETER = python
 CONDA_ENV ?= my-template-environment
 export PYTHONPATH=$(PWD):$PYTHONPATH;
 
@@ -77,3 +77,6 @@ remove_conda_env:
 run_pylint:
 	@echo "Running linter"
 	find . -type f -name "*.py" ! -path "./tests/*" | xargs pylint -disable=logging-fstring-interpolation > utils/pylint_report/pylint_report.txt
+
+run_python_script:
+	$(PYTHON_INTERPRETER) src/app.py

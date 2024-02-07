@@ -1,70 +1,69 @@
 {
-    "queries": [
-      {
-        "natural_language_query": "Find players who have a batting average greater than .300, have hit more than 20 home runs, and have stolen bases more than 30 in a season.",
-        "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Batting_Average > .300 AND Home_Runs > 20 AND Stolen_Bases > 30",
-        "results": ["Player103", "Player106", "Player107", "Player115", "Player119", "Player129", "Player132", "Player159", "Player175", "Player177", "Player19", "Player20", "Player22", "Player23", "Player239", "Player274", "Player277", "Player28", "Player289", "Player29", "Player35", "Player42", "Player46", "Player56", "Player57", "Player58", "Player80", "Player81"]
-      },
-      {
-        "natural_language_query": "Select pitchers (P) with an ERA lower than 3.00, more than 200 strikeouts pitching, and WHIP less than 1.20.",
-        "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Position = 'P' AND ERA < 3.00 AND Strikeouts_Pitching > 200 AND WHIP < 1.20",
-        "results": ["Player110", "Player120", "Player155", "Player180", "Player220", "Player255", "Player40"]
-      },
-      {
-        "natural_language_query": "Identify players who played more than 100 games, have an OPS (On-base Plus Slugging) higher than .900, and have less than 10 errors in a season.",
-        "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Games_Played > 100 AND OPS > .900 AND Errors < 10",
-        "results": ["Player124", "Player125", "Player129", "Player14", "Player143", "Player150", "Player166", "Player167", "Player183", "Player187", "Player205", "Player216", "Player231", "Player256", "Player277", "Player287", "Player297", "Player298", "Player31", "Player33", "Player35", "Player49", "Player50", "Player53", "Player73", "Player82", "Player95"]
-      },
-      {
-        "natural_language_query": "List all infielders (INF) who have more than 50 RBIs, more than 80 walks, and a batting average less than .250.",
-        "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Position = 'INF' AND RBIs > 50 AND Walks > 80 AND Batting_Average < .250",
-        "results": ["Player162", "Player197", "Player282"]
-      },
-      {
-        "natural_language_query": "Find designated hitters (DH) with a slugging percentage (SLG) greater than .550, more than 40 home runs, and an OBP (On-Base Percentage) less than .400.",
-        "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Position = 'DH' AND SLG > .550 AND Home_Runs > 40 AND OBP < .400",
-        "results": ["Player179", "Player249"]
-      },
-      {
-        "natural_language_query": "Select outfielders (OF) who have stolen more than 40 bases, have an OPS greater than .850, and have played in at least 120 games in a season.",
-        "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Position = 'OF' AND Stolen_Bases > 40 AND OPS > .850 AND Games_Played >= 120",
-        "results": ["Player118", "Player153", "Player228", "Player78"]
-      },
-      {
-        "natural_language_query": "Identify catchers (C) with more than 60 walks, a batting average higher than .250, and have caught more than 10 games.",
-        "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Position = 'C' AND Walks > 60 AND Batting_Average > .250 AND Games_Played > 10",
-        "results": ["Player106", "Player141", "Player146", "Player166", "Player171", "Player176", "Player186", "Player226", "Player261", "Player266", "Player271", "Player291", "Player31", "Player36", "Player46", "Player56", "Player6", "Player66", "Player76", "Player86"]
-      },
-      {
-        "natural_language_query": "Find players who have struck out more than 150 times, with less than 20 home runs, but have an OBP higher than .350.",
-        "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Strikeouts > 150 AND Home_Runs < 20 AND OBP > .350",
-        "results": ["Player108", "Player141", "Player142", "Player149", "Player15", "Player153", "Player160", "Player166", "Player170", "Player188", "Player196", "Player21", "Player214", "Player245", "Player248", "Player255", "Player259", "Player26", "Player267", "Player275", "Player295", "Player6", "Player63", "Player97"]
-      },
-      {
-        "natural_language_query": "List players who have more than 100 RBIs, an OPS higher than .950, and have played in less than 140 games in a season.",
-        "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE RBIs > 100 AND OPS > .950 AND Games_Played < 140",
-        "results": ["Player156", "Player202", "Player23", "Player4", "Player78", "Player99"]
-      },
-      {
-        "natural_language_query": "Select pitchers (P) who have won more than 15 games, have an ERA less than 4.00, and have a WHIP less than 1.25.",
-        "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Position = 'P' AND Wins > 15 AND ERA < 4.00 AND WHIP < 1.25",
-        "results": ["Player110", "Player130", "Player135", "Player150", "Player230", "Player40", "Player80", "Player85"]
-      },
-      {
-        "natural_language_query": "Select all players who have a SLG above .500, OBP above .400, and more than 50 walks in the 2020 season.",
-        "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Year = 2020 AND SLG > .500 AND OBP > .400 AND Walks > 50",
-        "results": ["Player276", "Player296", "Player86"]
-      },
-      {
-        "natural_language_query": "List players who have stolen bases greater than 20, batting average above .300, and participated in more than 80 games but have no home runs in the 2022 season.",
-        "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Year = 2022 AND Stolen_Bases > 20 AND Batting_Average > .300 AND Games_Played > 80 AND Home_Runs = 0",
-        "results": ["Player138", "Player78"]
-      },
-      {
-        "natural_language_query": "Identify catchers (C) with more than 90 walks, batting average below .250, and at least 15 home runs in any season.",
-        "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Position = 'C' AND Walks > 90 AND Batting_Average < .250 AND Home_Runs >= 15",
-        "results": ["Player111"]
-      }
-    ]
-  }
-  
+  "queries": [
+    {
+      "natural_language_query": "Find players who have a batting average greater than .300, have hit more than 20 home runs, and have stolen bases more than 30 in a season.",
+      "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Batting_Average > .300 AND Home_Runs > 20 AND Stolen_Bases > 30",
+      "results": ["Player103", "Player106", "Player107", "Player115", "Player119", "Player129", "Player132", "Player159", "Player175", "Player177", "Player19", "Player20", "Player22", "Player23", "Player239", "Player274", "Player277", "Player28", "Player289", "Player29", "Player35", "Player42", "Player46", "Player56", "Player57", "Player58", "Player80", "Player81"]
+    },
+    {
+      "natural_language_query": "Select pitchers (P) with an ERA lower than 3.00, more than 200 strikeouts pitching, and WHIP less than 1.20.",
+      "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Position = 'P' AND ERA < 3.00 AND Strikeouts_Pitching > 200 AND WHIP < 1.20",
+      "results": ["Player110", "Player120", "Player155", "Player180", "Player220", "Player255", "Player40"]
+    },
+    {
+      "natural_language_query": "Identify players who played more than 100 games, have an OPS (On-base Plus Slugging) higher than .900, and have less than 10 errors in a season.",
+      "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Games_Played > 100 AND OPS > .900 AND Errors < 10",
+      "results": ["Player124", "Player125", "Player129", "Player14", "Player143", "Player150", "Player166", "Player167", "Player183", "Player187", "Player205", "Player216", "Player231", "Player256", "Player277", "Player287", "Player297", "Player298", "Player31", "Player33", "Player35", "Player49", "Player50", "Player53", "Player73", "Player82", "Player95"]
+    },
+    {
+      "natural_language_query": "List all infielders (INF) who have more than 50 RBIs, more than 80 walks, and a batting average less than .250.",
+      "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Position = 'INF' AND RBIs > 50 AND Walks > 80 AND Batting_Average < .250",
+      "results": ["Player162", "Player197", "Player282"]
+    },
+    {
+      "natural_language_query": "Find designated hitters (DH) with a slugging percentage (SLG) greater than .550, more than 40 home runs, and an OBP (On-Base Percentage) less than .400.",
+      "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Position = 'DH' AND SLG > .550 AND Home_Runs > 40 AND OBP < .400",
+      "results": ["Player179", "Player249"]
+    },
+    {
+      "natural_language_query": "Select outfielders (OF) who have stolen more than 40 bases, have an OPS greater than .850, and have played in at least 120 games in a season.",
+      "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Position = 'OF' AND Stolen_Bases > 40 AND OPS > .850 AND Games_Played >= 120",
+      "results": ["Player118", "Player153", "Player228", "Player78"]
+    },
+    {
+      "natural_language_query": "Identify catchers (C) with more than 60 walks, a batting average higher than .250, and have caught more than 10 games.",
+      "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Position = 'C' AND Walks > 60 AND Batting_Average > .250 AND Games_Played > 10",
+      "results": ["Player106", "Player141", "Player146", "Player166", "Player171", "Player176", "Player186", "Player226", "Player261", "Player266", "Player271", "Player291", "Player31", "Player36", "Player46", "Player56", "Player6", "Player66", "Player76", "Player86"]
+    },
+    {
+      "natural_language_query": "Find players who have struck out more than 150 times, with less than 20 home runs, but have an OBP higher than .350.",
+      "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Strikeouts > 150 AND Home_Runs < 20 AND OBP > .350",
+      "results": ["Player108", "Player141", "Player142", "Player149", "Player15", "Player153", "Player160", "Player166", "Player170", "Player188", "Player196", "Player21", "Player214", "Player245", "Player248", "Player255", "Player259", "Player26", "Player267", "Player275", "Player295", "Player6", "Player63", "Player97"]
+    },
+    {
+      "natural_language_query": "List players who have more than 100 RBIs, an OPS higher than .950, and have played in less than 140 games in a season.",
+      "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE RBIs > 100 AND OPS > .950 AND Games_Played < 140",
+      "results": ["Player156", "Player202", "Player23", "Player4", "Player78", "Player99"]
+    },
+    {
+      "natural_language_query": "Select pitchers (P) who have won more than 15 games, have an ERA less than 4.00, and have a WHIP less than 1.25.",
+      "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Position = 'P' AND Wins > 15 AND ERA < 4.00 AND WHIP < 1.25",
+      "results": ["Player110", "Player130", "Player135", "Player150", "Player230", "Player40", "Player80", "Player85"]
+    },
+    {
+      "natural_language_query": "Select all players who have a SLG above .500, OBP above .400, and more than 50 walks in the 2020 season.",
+      "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Year = 2020 AND SLG > .500 AND OBP > .400 AND Walks > 50",
+      "results": ["Player276", "Player296", "Player86"]
+    },
+    {
+      "natural_language_query": "List players who have stolen bases greater than 20, batting average above .300, and participated in more than 80 games but have no home runs in the 2022 season.",
+      "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Year = 2022 AND Stolen_Bases > 20 AND Batting_Average > .300 AND Games_Played > 80 AND Home_Runs = 0",
+      "results": ["Player138", "Player78"]
+    },
+    {
+      "natural_language_query": "Identify catchers (C) with more than 90 walks, batting average below .250, and at least 15 home runs in any season.",
+      "sql_query": "SELECT Name FROM expanded_detroit_tigers_baseball_stats WHERE Position = 'C' AND Walks > 90 AND Batting_Average < .250 AND Home_Runs >= 15",
+      "results": ["Player111"]
+    }
+  ]
+}

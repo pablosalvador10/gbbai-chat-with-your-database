@@ -1,5 +1,6 @@
 import logging
 import os
+import traceback
 from typing import Any, Dict, List, Optional, Tuple, Union
 
 import pyodbc
@@ -30,16 +31,11 @@ class AzureSQLManager:
         if self.database is None:
             raise ValueError("Database cannot be None.")
         self.connection_string = (
-            f"DRIVER={{ODBC Driver 18 for SQL Server}};"
-            f"SERVER={self.server};"
-            f"DATABASE={self.database};"
-            f"UID={self.user_id};"
-            f"PWD={self.password};"
-            "Persist Security Info=False;"
-            "MultipleActiveResultSets=False;"
-            "Encrypt=True;"
-            "TrustServerCertificate=False;"
-            "Connection Timeout=30;"
+            f"DRIVER={{{os.getenv('DB_DRIVER')}}};"
+            f"SERVER={os.getenv('DB_SERVER')};"
+            f"DATABASE={os.getenv('DB_NAME')};"
+            f"UID={os.getenv('DB_UID')};"
+            f"PWD={os.getenv('DB_PWD')};"
         )
         try:
             self.conn = pyodbc.connect(self.connection_string)
@@ -53,16 +49,23 @@ class AzureSQLManager:
         self.database = new_database
         self.connect()
 
-    def execute(self, query: str) -> None:
+    def execute_and_fetch(self, query: str) -> List[Tuple]:
         """
-        Execute a given SQL query without returning results.
+        Execute a given SQL query and return the results.
 
         :param query: SQL query to be executed.
+        :return: List of tuples representing the rows fetched.
         """
         try:
             self.cursor.execute(query)
+            results = self.cursor.fetchall()
+            return results
         except pyodbc.Error as e:
-            logging.error(f"Error executing query: {query}, Error: {e}")
+            error_message = str(e)
+            error_traceback = traceback.format_exc()
+            logging.error(
+                f"Error executing query: {query}\nError Message: {error_message}\nTraceback: {error_traceback}"
+            )
             raise
 
     def fetchall(self) -> List[Tuple]:
