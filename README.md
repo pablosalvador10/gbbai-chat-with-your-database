@@ -6,7 +6,7 @@ In the era of data-driven decision-making, accessing and understanding complex d
 The RAG Pattern Project is engineered as a quick-start template to accelerate the development of AI-driven database querying systems. It harnesses the power of Azure AI Search to significantly enhance the relevance of search results across databases. Simultaneously, the GPT-4 Turing model acts as a sophisticated reasoning engine, capable of understanding complex queries, generating accurate SQL commands, and providing insightful answers drawn directly from your data stores. 💡
 
 ## 🔑 Key Features
-- **Intelligent Query Generation**: Automatically translate natural language queries into precise SQL commands using GPT-4 Turing's generative AI capabilities.
+- **Intelligent Query Generation**: Automatically translate natural language queries into precise SQL commands using GPT-4 capabilities.
 - **Enhanced Search Relevance**: Leverage Azure AI Search to sift through databases, ensuring that search results are as relevant and accurate as possible.
 - **Cross-Domain Applicability**: Whether you're analyzing financial records, managing inventory, or conducting academic research, our solution is versatile enough to cater to a wide range of domains and applications.
 
